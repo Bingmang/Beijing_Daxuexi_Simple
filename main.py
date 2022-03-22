@@ -1,4 +1,5 @@
 import os
+import time
 
 from study import study
 
@@ -38,9 +39,13 @@ successful = 0
 count = 0
 for username, password in accounts:
     count += 1
-    print(f'--User {count}--')
+    print(f'[INFO] --User {count} : {username}--')
     if study(username, password, ua):
         successful += 1
+        print(f'[INFO] User {username} succeed, sleep for 42 seconds')
+        time.sleep(42)
+    else:
+        print(f'[ERROR] User {username} failed')
 
 failed = count - successful
 print('--Summary--')
