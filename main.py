@@ -47,7 +47,7 @@ for username, password in accounts:
                 print(f'[INFO] User {username} succeed, sleep for 2 seconds')
                 time.sleep(2)
             else:
-                print(f'[ERROR] User {username} failed')
+                raise Exception('study() return 0')
             break
         except Exception as e:
             print(f'[WARNING] User {username} failed: {e}')
