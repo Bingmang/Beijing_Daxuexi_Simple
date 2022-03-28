@@ -51,6 +51,8 @@ for username, password in accounts:
             break
         except Exception as e:
             print(f'[WARNING] User {username} failed: {e}')
+    else:
+        print(f'[ERROR] User {username} failed after try 3 times')
 
 failed = count - successful
 print('--Summary--')
