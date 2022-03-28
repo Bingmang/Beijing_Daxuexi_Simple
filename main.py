@@ -42,8 +42,8 @@ for username, password in accounts:
     print(f'[INFO] --User {count} : {username}--')
     if study(username, password, ua):
         successful += 1
-        print(f'[INFO] User {username} succeed, sleep for 42 seconds')
-        time.sleep(3)
+        print(f'[INFO] User {username} succeed, sleep for 2 seconds')
+        time.sleep(2)
     else:
         print(f'[ERROR] User {username} failed')
 
