@@ -39,13 +39,18 @@ successful = 0
 count = 0
 for username, password in accounts:
     count += 1
-    print(f'[INFO] --User {count} : {username}--')
-    if study(username, password, ua):
-        successful += 1
-        print(f'[INFO] User {username} succeed, sleep for 2 seconds')
-        time.sleep(2)
-    else:
-        print(f'[ERROR] User {username} failed')
+    for i in range(3):
+        try:
+            print(f'[INFO] User {count} : {username}, try for {i} times')
+            if study(username, password, ua):
+                successful += 1
+                print(f'[INFO] User {username} succeed, sleep for 2 seconds')
+                time.sleep(2)
+            else:
+                print(f'[ERROR] User {username} failed')
+            break
+        except Exception as e:
+            print(f'[WARNING] User {username} failed: {e}')
 
 failed = count - successful
 print('--Summary--')
